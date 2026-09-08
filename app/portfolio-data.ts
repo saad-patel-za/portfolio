@@ -6,6 +6,7 @@ export const projects = [
   {name:'Funnel Intelligence Group',slug:'funnel-intelligence',url:'https://funnelintelligencegroup.com/',type:'PHP · Brand website',scope:'Custom development',color:'#2b364a',year:'05'},
   {name:'Corporate AV',slug:'corporate-av',url:'https://www.corporateav.ae/',type:'Shopify · Product detail pages',scope:'Figma to Shopify',color:'#26403b',year:'06'},
   {name:'Vigilon',slug:'vigilon',url:'https://vigilon.global/',type:'Wix · Custom website',scope:'Figma to Wix',color:'#3e3828',year:'07'},
+  {name:'Argentina’s Best Hunting',slug:'argentina-best-hunting',url:'https://argentinasbesthunting.com/',type:'WordPress · Custom website',scope:'Figma to WordPress',color:'#384636',year:'08'},
 ];
 export const skills = [
   {title:'Commerce & CMS',detail:'Custom storefronts. Flexible content. Built around your brand.',items:['Shopify Liquid','WordPress','Elementor','Divi','Webflow','Wix','Squarespace']},

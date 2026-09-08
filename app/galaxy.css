@@ -1,0 +1,33 @@
+main { isolation: isolate; }
+.galaxy-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 85% 35%, #19403b30, transparent 65%),
+    radial-gradient(ellipse at 70% 80%, #3b285523, transparent 55%);
+}
+.galaxy-background canvas { display: block; opacity: .8; }
+.galaxy-background::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #10110fbb 0%, #10110f66 40%, transparent 80%),
+    linear-gradient(0deg, #10110f55, transparent 35%);
+}
+.sculpt-fallback { background: transparent; }
+.project-image { will-change: auto; }
+.round-link span { transition: transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s; }
+.round-link:hover span { transform: rotate(-45deg); box-shadow: 0 0 40px #d3ff5f33; }
+.nav-contact { transition: color .25s, background .25s, box-shadow .35s !important; }
+.nav-contact:hover { box-shadow: 0 0 28px #d3ff5f18; }
+.motion-off .project-image { transform: none !important; }
+.motion-off .round-link:hover span { transform: none; }
+@media (max-width:700px) {
+  .galaxy-background canvas { opacity: .6; }
+  .galaxy-background::after { background: linear-gradient(90deg, #10110fa6, #10110f33); }
+}
+@media (prefers-reduced-motion:reduce) {
+  .round-link:hover span { transform: none; }
+}

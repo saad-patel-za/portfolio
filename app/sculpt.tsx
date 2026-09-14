@@ -44,7 +44,7 @@ export default function Sculpt({enabled}:{enabled:boolean}) {
       const pointer=(e:PointerEvent)=>{const bounds=container.getBoundingClientRect();targetX=(e.clientX-bounds.left)/bounds.width-.5;targetY=(e.clientY-bounds.top)/bounds.height-.5;};
       const leave=()=>{targetX=0;targetY=0;};
       container.addEventListener('pointermove',pointer);container.addEventListener('pointerleave',leave);
-      let started=performance.now();
+      const started=performance.now();
       const render=(now:number)=>{
         if(disposed)return;
         if(visible&&!document.hidden){

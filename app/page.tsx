@@ -1,4 +1,5 @@
 'use client';
+/* eslint-disable next/no-img-element -- Static hosting uses optimized local WebP images. */
 
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
@@ -15,10 +16,10 @@ export default function Home() {
   const [motion, setMotion] = useState(false);
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setMotion(!query.matches);
+    const frame = requestAnimationFrame(() => setMotion(!query.matches));
     const sync = () => setMotion(!query.matches);
     query.addEventListener('change', sync);
-    return () => query.removeEventListener('change', sync);
+    return () => { cancelAnimationFrame(frame); query.removeEventListener('change', sync); };
   }, []);
   useEffect(() => {
     if (!motion) return;
@@ -62,7 +63,7 @@ export default function Home() {
       <div className="section-heading reveal"><h2>Built with purpose.<br/><span className="muted">Crafted with care.</span></h2><span className="work-count">(08)</span></div>
       <div className="project-grid">{projects.map((p,i) => <article className={`project reveal ${i===0 || i===4 ? 'project-wide' : ''}`} key={p.slug}>
         <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${p.name} — ${p.type} (opens in a new tab)`}>
-          <div className="project-image" style={{background:p.color}}><span className="project-number">/{p.year}</span><div className="browser-frame"><div className="browser-chrome"><span>● ● ●</span><span>{new URL(p.url).hostname}</span><Arrow/></div><div className="screen-crop"><img src={`/projects/${p.slug}.webp`} alt={`${p.name} website design preview`} loading="lazy" width="1400" height={p.slug==='argentina-best-hunting'?4544:p.slug==='wandering-sauna'?3204:p.slug==='vosges'?6409:p.slug==='whitney-mariel'?9600:p.slug==='fundanglers'?6935:p.slug==='funnel-intelligence'?5795:p.slug==='corporate-av'?6039:11803}/></div></div><span className="project-visit">Visit website <Arrow/></span></div>
+          <div className="project-image" style={{background:p.color}}><span className="project-number">/{p.year}</span><div className="browser-frame"><div className="browser-chrome"><span>● ● ●</span><span>{new URL(p.url).hostname}</span><Arrow/></div><div className="screen-crop"><img src={`projects/${p.slug}.webp`} alt={`${p.name} website design preview`} loading="lazy" width="1400" height={p.slug==='argentina-best-hunting'?4544:p.slug==='wandering-sauna'?3204:p.slug==='vosges'?6409:p.slug==='whitney-mariel'?9600:p.slug==='fundanglers'?6935:p.slug==='funnel-intelligence'?5795:p.slug==='corporate-av'?6039:11803}/></div></div><span className="project-visit">Visit website <Arrow/></span></div>
           <div className="project-info"><div><h3>{p.name}</h3><p>{p.type}</p></div><span className="project-scope">{p.scope} <Arrow/></span></div>
         </a>
       </article>)}</div>

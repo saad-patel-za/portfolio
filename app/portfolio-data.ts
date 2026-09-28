@@ -1,4 +1,7 @@
 export const projects = [
+  {name:'The Vision Mart',slug:'vision-mart',url:'https://thevisionmart.com/',type:'WordPress · Custom website',scope:'Custom development',color:'#593c45',year:'09'},
+  {name:'Blueprint Baseball',slug:'blueprint-baseball',url:'https://blueprintbaseball.club/',type:'WordPress · Custom website',scope:'Custom development',color:'#193852',year:'10'},
+  {name:'Unit 07',slug:'unit-07',url:'https://saad-patel-za.github.io/unit-07/',type:'React · GSAP · TypeScript',scope:'Interactive experience',color:'#393b34',year:'11'},
   {name:'Wandering Sauna',slug:'wandering-sauna',url:'https://wanderingsauna.com/',type:'Shopify · Custom storefront & custom PDPs',scope:'Figma to Shopify',color:'#343d2b',year:'01'},
   {name:'Vosges Haut-Chocolat',slug:'vosges',url:'https://www.vosgeschocolate.com/',type:'Shopify · Custom storefront & custom PDPs',scope:'Figma to Shopify',color:'#30283e',year:'02'},
   {name:'Whitney Mariel',slug:'whitney-mariel',url:'https://shopthewm.com/',type:'Shopify · Custom storefront & custom PDPs',scope:'Figma to Shopify',color:'#593c45',year:'03'},

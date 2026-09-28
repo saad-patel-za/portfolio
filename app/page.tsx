@@ -48,7 +48,7 @@ export default function Home() {
     <div className="reading-progress" aria-hidden="true"/>
     <header className="nav wrap">
       <a className="logo" href="#top" aria-label="Saad Patel home">saad<span>®</span></a>
-      <nav aria-label="Main navigation"><a href="#work">Selected work <sup>08</sup></a><a href="#about">About me</a><a href="#contact" className="nav-contact">Let’s talk <Arrow/></a></nav>
+      <nav aria-label="Main navigation"><a href="#work">Selected work <sup>{String(projects.length).padStart(2, '0')}</sup></a><a href="#about">About me</a><a href="#contact" className="nav-contact">Let’s talk <Arrow/></a></nav>
     </header>
     <section className="hero wrap" id="top">
       <p className="eyebrow"><span className="status-dot"/> SAAD PATEL · SENIOR WEB DEVELOPER</p>
@@ -60,10 +60,10 @@ export default function Home() {
     <div className="ticker" aria-hidden="true"><div className="ticker-track"><span>FIGMA TO FUNCTION <b>✳</b> SHOPIFY & BEYOND <b>✳</b> DETAILS MAKE THE DIFFERENCE <b>✳</b></span><span>FIGMA TO FUNCTION <b>✳</b> SHOPIFY & BEYOND <b>✳</b> DETAILS MAKE THE DIFFERENCE <b>✳</b></span></div></div>
     <section className="work wrap" id="work">
       <div className="section-top reveal"><p className="eyebrow">01 / SELECTED WORK</p><span className="section-note">A selection of websites I’ve helped bring to life.</span></div>
-      <div className="section-heading reveal"><h2>Built with purpose.<br/><span className="muted">Crafted with care.</span></h2><span className="work-count">(08)</span></div>
-      <div className="project-grid">{projects.map((p,i) => <article className={`project reveal ${i===0 || i===4 ? 'project-wide' : ''}`} key={p.slug}>
+      <div className="section-heading reveal"><h2>Built with purpose.<br/><span className="muted">Crafted with care.</span></h2><span className="work-count">({String(projects.length).padStart(2, '0')})</span></div>
+      <div className="project-grid">{projects.map((p,i) => <article className={`project reveal ${i===0 || i===4 || i===10 ? 'project-wide' : ''}`} key={p.slug}>
         <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${p.name} — ${p.type} (opens in a new tab)`}>
-          <div className="project-image" style={{background:p.color}}><span className="project-number">/{p.year}</span><div className="browser-frame"><div className="browser-chrome"><span>● ● ●</span><span>{new URL(p.url).hostname}</span><Arrow/></div><div className="screen-crop"><img src={`projects/${p.slug}.webp`} alt={`${p.name} website design preview`} loading="lazy" width="1400" height={p.slug==='argentina-best-hunting'?4544:p.slug==='wandering-sauna'?3204:p.slug==='vosges'?6409:p.slug==='whitney-mariel'?9600:p.slug==='fundanglers'?6935:p.slug==='funnel-intelligence'?5795:p.slug==='corporate-av'?6039:11803}/></div></div><span className="project-visit">Visit website <Arrow/></span></div>
+          <div className="project-image" style={{background:p.color}}><span className="project-number">/{String(i + 1).padStart(2, '0')}</span><div className="browser-frame"><div className="browser-chrome"><span>● ● ●</span><span>{new URL(p.url).hostname}</span><Arrow/></div><div className="screen-crop"><img src={`projects/${p.slug}.webp`} alt={`${p.name} website design preview`} loading="lazy" width="1400" height={p.slug==='vision-mart'?8982:p.slug==='blueprint-baseball'?3097:p.slug==='unit-07'?10180:p.slug==='argentina-best-hunting'?4544:p.slug==='wandering-sauna'?3204:p.slug==='vosges'?6409:p.slug==='whitney-mariel'?9600:p.slug==='fundanglers'?6935:p.slug==='funnel-intelligence'?5795:p.slug==='corporate-av'?6039:11803}/></div></div><span className="project-visit">Visit website <Arrow/></span></div>
           <div className="project-info"><div><h3>{p.name}</h3><p>{p.type}</p></div><span className="project-scope">{p.scope} <Arrow/></span></div>
         </a>
       </article>)}</div>
